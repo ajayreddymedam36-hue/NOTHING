@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Runner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="web.css">
+    <!-- Add this in <head> to use Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="flex flex-col justify-center items-center min-h-screen relative overflow-hidden bg-black">
+
+    <!-- Background -->
+    <div class="overlay-bg"></div>
+
+    <!-- Game Container -->
+    <div id="game"
+        class="relative w-[95vw] max-w-[1000px] h-[60vh] max-h-[500px]
+               overflow-hidden rounded-xl shadow-2xl 
+               border border-cyan-400/40 moving-bg z-10">
+
+        <!-- Score -->
+        <div class="absolute top-2 right-4 font-Orbitron text-white z-20">
+            Debug Efficiency: <span id="score">0</span>
+        </div>
+
+        <!-- Player -->
+        <div id="player"
+            class="absolute bottom-0 left-10 text-4xl md:text-5xl select-none z-20">
+            👨‍💻
+        </div>
+
+        <!-- Obstacle -->
+        <div id="obstacle"
+            class="absolute bottom-0 text-4xl md:text-5xl select-none z-20">
+            🐞
+        </div>
+    </div>
+
+    <!-- 📱 Mobile Controls (Outside Game) -->
+    <div class="fixed bottom-6 left-0 right-0 flex justify-center gap-8 z-40 md:hidden">
+
+        <button id="jumpBtn"
+            class="bg-blue-500 px-8 py-4 rounded-full text-white text-lg shadow-lg active:scale-95">
+            ⬆ Jump
+        </button>
+
+        <button id="pauseBtn"
+            class="bg-yellow-500 px-8 py-4 rounded-full text-white text-lg shadow-lg active:scale-95">
+            ⏸ Pause
+        </button>
+
+    </div>
+
+   <!-- Name Screen -->
+
+<!-- Name Screen -->
+<div id="nameScreen"
+    class="fixed inset-0 bg-gradient-to-br from-black via-gray-900 to-black 
+           flex flex-col justify-center items-center text-white z-50 
+           font-[Poppins]">
+
+    <h1 class="text-4xl mb-8 font-bold tracking-wide 
+               text-white drop-shadow-lg">
+        Enter Your Name
+    </h1>
+
+    <input id="nameInput"
+        type="text"
+        placeholder="Your Name"
+        class="w-72 px-5 py-3 rounded-xl 
+               bg-gray-800 text-white placeholder-gray-400
+               border border-gray-700
+               focus:outline-none focus:ring-2 focus:ring-green-500
+               transition duration-300 mb-6">
+
+    <button id="nameSubmitBtn"
+        class="w-72 bg-green-500 
+               py-3 rounded-xl font-semibold tracking-wide
+               hover:bg-green-600 hover:scale-105
+               transition duration-300 shadow-lg shadow-green-500/30">
+        Continue
+    </button>
+</div>
+<!-- Description Screen -->
+<!-- Description Screen -->
+<div id="descriptionScreen"
+    class="fixed inset-0 bg-black flex flex-col justify-center items-center text-white text-center px-8 hidden z-50">
+
+    <div class="max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold mb-8 text-[#00FF00] ">🚀 CODER, ENTER THE WARZONE 🚀</h1>
+
+        <div id="descriptionText" ></div>
+
+        <button id="debugBtn"
+            class="mt-8 bg-red-600 px-8 py-3 rounded-lg text-lg font-bold hover:bg-red-700 transition">
+            START DEBUGGING 👨‍💻
+        </button>
+
+    </div>
+</div>
+    <!-- Crash Screen -->
+    <div id="crashScreen"
+        class="fixed inset-0 bg-black flex flex-col justify-center items-center text-red-500 text-center hidden z-50">
+
+        <h1 class="text-4xl  text-6xl font-bold glitch">
+            SYSTEM CRASHED
+        </h1>
+
+        <p id="finalScore" class=" text-[#F5F5F5] mt-4  text-xl"></p>
+
+        <button id="restartBtn"
+            class="mt-6 bg-red-600 px-6 py-2 rounded hover:bg-red-700 text-white">
+            Restart
+        </button>
+    </div>
+
+    <script src="web.js"></script>
+</body>
+</html>
